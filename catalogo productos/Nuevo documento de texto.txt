@@ -1,0 +1,32 @@
+Table categories {
+  id int [pk]
+  name varchar
+}
+
+Table products {
+  id int [pk]
+  name varchar
+  category_id int
+}
+
+Table sizes {
+  id int [pk]
+  name varchar
+}
+
+Table product_sizes {
+  id int [pk]
+  product_id int
+  size_id int
+}
+
+Table product_images {  
+  id int [pk]
+  product_id int
+  image_url varchar
+}
+
+Ref: products.category_id > categories.id
+Ref: product_sizes.product_id > products.id
+Ref: product_sizes.size_id > sizes.id
+Ref: product_images.product_id > products.id
